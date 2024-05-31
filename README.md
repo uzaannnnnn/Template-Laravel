@@ -6,13 +6,26 @@ Welcome !!
 
 Ikuti Langkah-Langkah Berikut:
 
-1. **Step 1: Update Composer**
+1. **Step 1: Copy file .env.example**
+   
+   Run code berikut di Terminal:
+
+   ```bash
+   copy .env.example .env
+   ```
+   Atau bila error
+    ```bash
+   cp .env.example .env
+   ```
+     
+1. **Step 2: Update Composer**
    
    Run code berikut di Terminal:
 
    ```bash
    composer update
    ```
+   
 2. **Step 2: Generate Key Application**
    
    Run code berikut di Terminal:
