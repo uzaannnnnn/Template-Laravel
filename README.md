@@ -7,6 +7,7 @@ Welcome !!
 Ikuti Langkah-Langkah Berikut:
 
 1. **Step 1: Copy file .env.example**
+2.  **Step 2: Copy file .env.example**
    
    Run code berikut di Terminal:
 
@@ -18,7 +19,7 @@ Ikuti Langkah-Langkah Berikut:
    cp .env.example .env
    ```
      
-1. **Step 2: Update Composer**
+1. **Step 3: Update Composer**
    
    Run code berikut di Terminal:
 
