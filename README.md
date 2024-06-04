@@ -6,8 +6,15 @@ Welcome !!
 
 Ikuti Langkah-Langkah Berikut:
 
-1. **Step 1: Copy file .env.example**
-2.  **Step 2: Copy file .env.example**
+1. **Step 1: Move to directory**
+   
+   Run code berikut di Terminal:
+
+   ```bash
+   cd Template-Laravel
+   ```
+   
+1. **Step 2: Copy file .env.example**
    
    Run code berikut di Terminal:
 
