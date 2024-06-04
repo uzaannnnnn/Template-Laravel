@@ -34,21 +34,21 @@ Ikuti Langkah-Langkah Berikut:
    composer update
    ```
    
-2. **Step 3: Generate Key Application**
+2. **Step 4: Generate Key Application**
    
    Run code berikut di Terminal:
 
    ```bash
    php artisan key:generate
    ```
-3. **Step 4: Migrate**
+3. **Step 5: Migrate**
    
    Run code berikut di Terminal:
 
    ```bash
    php artisan migrate
    ```
-4. **Step 5: Run**
+4. **Step 6: Run**
    
    Run code berikut di Terminal:
 
