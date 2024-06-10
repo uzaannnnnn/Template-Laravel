@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\libraryController;
+use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +17,19 @@ use App\Http\Controllers\libraryController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('library', [libraryController::class, 'index'])->name('showPage');
+Route::get('book', [BookController::class, 'index']);
+
+Route::get('library/create', [libraryController::class, 'create'])->name('addpage');
+
+Route::post('library/create', [libraryController::class, 'store']);
+
+
+
+Route::get('library', [libraryController::class, 'index'])->name('showpage');
 Route::get('/', function () {
     return view('main.dashboard', [
         'header' => 'Dashboard',
