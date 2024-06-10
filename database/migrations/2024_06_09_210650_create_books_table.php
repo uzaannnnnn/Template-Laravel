@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('author');
-            $table->date('published_date');
             $table->string('publisher');
-            $table->integer('stock');
+            $table->string('published_date');
+            $table->string('stock');
             $table->timestamps();
         });
     }

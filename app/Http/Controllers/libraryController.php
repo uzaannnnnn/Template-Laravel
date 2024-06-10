@@ -16,7 +16,7 @@ class libraryController extends Controller
             "books" => $books
         ];
 
-        $header = "Library";
+        $header = "library";
 
         return view("main.read", [
             'data' => DB::table('books')->paginate(5),
@@ -26,12 +26,22 @@ class libraryController extends Controller
 
     public function create()
     {
-        //
+        $header = "Create";
+        return view('main.create', compact('header'));
     }
 
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:25|string',
+            'author' => 'required|max:25|string',
+            'publisher' => 'required|max:25|string',
+            'published_date' => 'required',
+            'stock' => 'required|max:25|string',
+        ]);
+
+        $book = Book::create($request->all());
+        return redirect('library')->with('success-status', 'Book Added Successfully');
     }
 
 

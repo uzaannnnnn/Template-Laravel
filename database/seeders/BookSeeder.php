@@ -2,26 +2,28 @@
 
 namespace Database\Seeders;
 
-use Carbon\Carbon;
 use App\Models\Book;
 use Faker\Factory as Faker;
-use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
 class BookSeeder extends Seeder
 {
-
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
-        $faker = Faker::create('id_ID');
+        $faker = Faker::create('id_ID'); //ID ini berdasarkan nama dari kode negara Indonesia
 
         for ($i = 0; $i < 5; $i++) {
             Book::create([
                 "title" => $faker->sentence(),
                 "author" => $faker->name(),
-                "published_date" => Carbon::now(),
                 "publisher" => $faker->name(),
-                "stock" => $faker->randomNumber(2)
+                "published_date" => Carbon::now(), //untuk tanggal sekarang
+                "stock" => $faker->randomNumber(2) //agar stoknya ada 2 angka
             ]);
         }
     }
