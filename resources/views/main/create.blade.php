@@ -2,7 +2,7 @@
 
 @section('main')
 
-<main class="container border border-4 border-top-0 border-button-0 border-dark-subtle rounded-5 px-5 py-4 w-75 mx-auto mt-5" style="height: 600px;">
+<main class="container border border-4 border-top-0 border-button-0 border-primary rounded-5 px-5 py-4 w-75 mx-auto mt-5" style="height: 600px;">
   <h3>Add Book</h3>
   <form class="row g-3 w-75 mx-auto mt-5" action="create" method="POST">
     @csrf
