@@ -31,6 +31,10 @@
                         <a class="align-middle link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                             aria-current="page" href="/library">Library</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="align-middle link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                            aria-current="page" href="/login">Login</a>
+                    </li>
 
                 </ul>
             </div>

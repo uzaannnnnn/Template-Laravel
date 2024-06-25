@@ -47,7 +47,7 @@
     </div>
 
     <div class="col-6 mt-5 px-4">
-        <a href="{{ route('showpage') }}" class="btn btn-primary">Back</a>
+        <a href="{{ route('library.index') }}" class="btn btn-primary">Back</a>
     </div>
     <div class="col-6 mt-5 justify-content-end d-flex px-4">
         <button class="btn btn-primary" type="submit">Save</button>

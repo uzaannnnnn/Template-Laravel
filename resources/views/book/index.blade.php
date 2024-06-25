@@ -18,6 +18,7 @@
                 <th>Publised Date</th>
                 <th>Publiser</th>
                 <th>Stock</th>
+                <th>Action</th>
 
             </tr>
         </thead>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
 class libraryController extends Controller
@@ -16,7 +17,7 @@ class libraryController extends Controller
             "books" => $books
         ];
 
-        $header = "library";
+        $header = "Library";
 
         return view("main.read", [
             'data' => DB::table('books')->paginate(5),
@@ -47,7 +48,8 @@ class libraryController extends Controller
 
     public function show(string $id)
     {
-        //
+        $books = Book::findOrFail($id);
+        return view('main.read', ['showpage' => $books]);
     }
 
     /**
@@ -55,7 +57,8 @@ class libraryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $book = Book::findOrFail($id);
+        return view('main.edit', compact('book'));
     }
 
     /**
@@ -63,7 +66,13 @@ class libraryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $ekskul = Book::findOrFail($id);
+        $ekskul->update($request->all());
+        if ($ekskul) {
+            Session::flash('success-status', 'success');
+            Session::flash('success-message', 'Update Book Success');
+        }
+        return redirect('book');
     }
 
     /**
@@ -71,6 +80,13 @@ class libraryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $bookDelete = Book::findOrFail($id);
+        $bookDelete->delete();
+
+        if ($bookDelete) {
+            Session::flash('delete-status', 'success');
+            Session::flash('delete-message', 'Delete Book Success');
+        }
+        return redirect('book');
     }
 }
