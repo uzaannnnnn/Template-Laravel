@@ -16,7 +16,7 @@
 
     <nav class="navbar bg-primary navbar-expand-lg w-50 mx-auto mt-2 rounded-pill px-4 mb-5" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand">{{ $header }}</a>
+            <a class="navbar-brand">{{$header}}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="align-middle link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                            aria-current="page" href="/library">Library</a>
+                            aria-current="page" href="/book">Library</a>
                     </li>
                     <li class="nav-item">
                         <a class="align-middle link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"

@@ -20,6 +20,22 @@ crossorigin="anonymous">
 border-primary rounded-5 w-25"
         style="width: 18rem;">
         <div class="card-body">
+
+            @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+            @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
             <h3 class="card-title text-center mb-5">LOGIN</h3>
             <form method="POST" action="{{ route('login') }}">
                 @csrf

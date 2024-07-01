@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class libraryController extends Controller
 {
@@ -19,7 +21,7 @@ class libraryController extends Controller
 
         $header = "Library";
 
-        return view("main.read", [
+        return view("main.index", [
             'data' => DB::table('books')->paginate(5),
             'header' => $header,
         ]);
@@ -42,14 +44,14 @@ class libraryController extends Controller
         ]);
 
         $book = Book::create($request->all());
-        return redirect('library')->with('success-status', 'Book Added Successfully');
+        return redirect('book')->with('success-status', 'Book Added Successfully');
     }
 
 
     public function show(string $id)
     {
         $books = Book::findOrFail($id);
-        return view('main.read', ['showpage' => $books]);
+        return view('main.show', ['showpage' => $books]);
     }
 
     /**
@@ -88,5 +90,32 @@ class libraryController extends Controller
             Session::flash('delete-message', 'Delete Book Success');
         }
         return redirect('book');
+    }
+
+    public function search(Request $request)
+    {
+        $query = DB::table('books');
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('title', 'LIKE', "%{$search}%")
+                ->orWhere('author', 'LIKE', "%{$search}%")
+                ->orWhere('publisher', 'LIKE', "%{$search}%");
+        }
+
+        $data = $query->paginate(5);
+        $header = "Library";
+
+        $search = $request->input('search', '');
+
+        return view("main.show", compact('data', 'header', 'search'));
+    }
+
+    public function exportPdf()
+    {
+        $data = Book::all();
+        $header = 'Library';
+        $pdf = Pdf::loadView('pdf.export-pdf', compact('data', 'header'));
+        return $pdf->download('library-books' . Carbon::now()->timestamp . '.pdf');
     }
 }

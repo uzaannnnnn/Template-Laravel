@@ -16,6 +16,22 @@ crossorigin="anonymous">
 <body class="d-flex align-items-center justify-content-center vh-100">
     <div class="card mb-3 mx-auto border border-4 border-top-0 border-bottom-0 border-primary rounded-5 w25 px-2"style="width: 18rem;">
         <div class="card-body">
+
+            @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+            @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
             <h3 class="card-title text-center mb-5">REGISTRASI</h3>
             <form method="POST" action="{{ route('register') }}">
                 @csrf
